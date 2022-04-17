@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="./css/custom.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/JavaScript" src="./js/email.js"></script>
+    <title>Slava Ukraini International</title>
+</head>
+
+<body>
+    <h1>Home Page</h1>
+    <p><a href="#contact-id">click here for the contact form</a></p>
+    <div class="contact" id="contact-id">
+        <section><a href="#!">[ close ]</a></section>
+        <form action="/ajax/email" class="contact-form" method="POST" onsubmit="submitEmailForm(this);">
+            <div>
+                <input type="text" name="name" placeholder="Full Name" class="contact-form-input" required />
+            </div>
+            <div>
+                <input type="email" name="email" placeholder="e-mail" class="contact-form-input" required />
+            </div>
+            <div>
+                <textarea name="message" class="contact-form-input" placeholder="MESSAGE" required></textarea>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
