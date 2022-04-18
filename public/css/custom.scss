@@ -1,3 +1,4 @@
+@import "breakpoints.scss";
 *,
 *::before,
 *::after {
@@ -12,6 +13,119 @@ body {
 
 h1 {
     font-variant: small-caps;
+}
+
+.header {
+    background-color: cornflowerblue;
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+    .logo {
+        display: block;
+        float: left;
+        font-size: 2em;
+        padding: 10px 20px;
+        text-decoration: none;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        overflow: hidden;
+        background-color: #fff;
+        li {
+            a {
+                display: block;
+                padding: 20px 20px;
+                border-right: 1px solid #f4f4f4;
+                font-weight: 600;
+                color: #fff;
+                text-decoration: none;
+                background-color: cornflowerblue;
+                &:hover {
+                    transition: 25ms;
+                    background-color: #e4e24a;
+                    color: #333;
+                }
+            }
+            @include breakpoint-up(sm) {
+                float: left;
+                a {
+                    padding: 20px 30px;
+                }
+            }
+        }
+    }
+    .menu {
+        clear: both;
+        max-height: 0;
+        transition: max-height .2s ease-out;
+        @include breakpoint-up(sm) {
+            clear: none;
+            float: right;
+            max-height: none;
+        }
+    }
+    .menu-icon {
+        cursor: pointer;
+        display: inline-block;
+        float: right;
+        padding: 28px 20px;
+        position: relative;
+        user-select: none;
+        @include breakpoint-up(sm) {
+            display: none;
+        }
+        .navicon {
+            background: #333;
+            display: block;
+            height: 2px;
+            position: relative;
+            transition: background .2s ease-out;
+            width: 18px;
+            &::before {
+                top: 5px;
+                background: #333;
+                content: '';
+                display: block;
+                height: 100%;
+                position: absolute;
+                transition: all .2s ease-out;
+                width: 100%;
+            }
+            &::after {
+                top: -5px;
+                background: #333;
+                content: '';
+                display: block;
+                height: 100%;
+                position: absolute;
+                transition: all .2s ease-out;
+                width: 100%;
+            }
+        }
+    }
+    .menu-btn {
+        display: none;
+        &:checked {
+            ~.menu {
+                max-height: 240px;
+            }
+            ~.menu-icon {
+                .navicon {
+                    background: transparent;
+                }
+                &:not(.steps) {
+                    .navicon {
+                        &::before,
+                        &:after {
+                            top: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .contact {

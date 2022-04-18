@@ -1,0 +1,10 @@
+// Variables
+$primary: rgb(245, 245, 245);
+$primary-light: lighten($primary, 25%);
+$primary-dark: darken($primary, 25%);
+$primary-bg: #333;
+$secondary: #222;
+$button-color:lighten($primary, 25);
+$button-color-hover: darken(whitesmoke, 20);
+$header-font: 'Indie Flower',
+cursive;

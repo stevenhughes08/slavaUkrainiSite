@@ -1,0 +1,24 @@
+// Breakpoints
+$breakpoints: ( sm: 768px, md: 992px, lg: 1200px, ) !default;
+// Set Mixin
+@mixin breakpoint-down($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (max-width: #{inspect(map-get($breakpoints, $breakpoint))}) {
+            @content;
+        }
+    }
+    @else {
+        @warn "Invalid breakpoint you clown: #{$breakpoint}."+"Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
+
+@mixin breakpoint-up($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (min-width: #{inspect(map-get($breakpoints, $breakpoint))}) {
+            @content;
+        }
+    }
+    @else {
+        @warn "Invalid breakpoint you clown: #{$breakpoint}."+"Available breakpoints are: #{map-keys($breakpoints)}.";
+    }
+}
